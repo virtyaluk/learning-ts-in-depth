@@ -118,7 +118,7 @@ function GetTitles(bookProperty: any) : string[] {
 }
 
 function PrintBook(book: Book): void {
-    console.log(`{book.title} by {book.author}`);
+    console.log(`${book.title} by ${book.author}`);
 }
 
 //******************************************************************
@@ -159,7 +159,7 @@ favoriteLibrarian.assistCustomer('Lynda');
 // CreateCustomer('Toby', 56, 'Boston');
 
 //const fictionBooks = GetBookTitlesByCategory(Category.Fiction);
-//fictionBooks.forEach((val, ind) => console.log(`{++ind} - {val}`));
+//fictionBooks.forEach((val, ind) => console.log(`${++ind} - ${val}`));
 
 //let x: number;
 //let IdGenerator: (chars: string, nums: number) => string = CreateCustomerID;

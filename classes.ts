@@ -6,7 +6,7 @@ class UniversityLibrarian implements Librarian {
     departament: string;
 
     assistCustomer(custName: string) {
-        console.log(`{this.name} is assisting {custName}`);
+        console.log(`${this.name} is assisting ${custName}`);
     }
 }
 
