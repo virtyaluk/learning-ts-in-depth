@@ -1,4 +1,8 @@
-function GetAllBooks() {
+import { Category } from './enums';
+import { Book, DamageLoger, Person, Author, Librarian } from './interfaces';
+import { UniversityLibrarian } from './classes';
+
+function GetAllBooks(): Book[] {
     let books = [
         { id: 1, title: 'Ulysses', author: 'James Joyce', available: true, category: Category.Fiction },
 		{ id: 2, title: 'A Farewell to Arms', author: 'Ernest Hemingway', available: false, category: Category.Fiction },
@@ -9,7 +13,7 @@ function GetAllBooks() {
     return books;
 }
 
-function LogFirstAvailable(books = GetAllBooks()): void {
+function LogFirstAvailable(books: Book[] = GetAllBooks()): void {
     let numberOfBooks: number = books.length,
         firstAvalBook: string = '';
 
@@ -25,7 +29,7 @@ function LogFirstAvailable(books = GetAllBooks()): void {
     console.log('First Available: ' + firstAvalBook);
 }
 
-enum Category { Biography, Poetry, Fiction, History, Children }
+
 
 function GetBookTitlesByCategory(categoryFilter: Category = Category.Fiction): Array<string> {
     console.log('Getting books in category: ' + Category[categoryFilter]);
@@ -48,7 +52,7 @@ function LogBookTitles(titles: string[]): void {
     }
 }
 
-function GetBookById(id: number) {
+function GetBookById(id: number): Book {
     const allBooks = GetAllBooks();
     
     return allBooks.filter(book => book.id === id)[0];
@@ -113,9 +117,34 @@ function GetTitles(bookProperty: any) : string[] {
     return foundTitles;
 }
 
+function PrintBook(book: Book): void {
+    console.log(`{book.title} by {book.author}`);
+}
+
 //******************************************************************
-let hermanBooks = GetTitles('Herman Melville');
-hermanBooks.forEach(title => console.log(title));
+let favoriteLibrarian: Librarian = new UniversityLibrarian();
+
+favoriteLibrarian.name = 'Sharon';
+favoriteLibrarian.assistCustomer('Lynda');
+
+// let myBook: Book = {
+//     id: 5,
+//     title: 'Foo bar',
+//     author: 'Bohdan Shtepan',
+//     available: true,
+//     category: Category.Biography,
+//     pages: 250,
+//     markDamaged: (reason: string) => console.log('Damaged: ' + reason),
+// };
+
+// let logDamage: DamageLoger = (damage: string) => console.log('Damage reported: ' + damage);
+// console.log('Coffee stains');
+
+// PrintBook(myBook);
+// myBook.markDamaged('Missing back cover');
+
+// let hermanBooks = GetTitles('Herman Melville');
+// hermanBooks.forEach(title => console.log(title));
 
 // let myBooks: string[] = CheckoutBooks('Thor', 1, 3, 4);
 // myBooks.forEach(title => console.log(title));
