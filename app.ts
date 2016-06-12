@@ -1,6 +1,8 @@
 import { Category } from './enums';
-import { Book, DamageLoger, Person, Author, Librarian } from './interfaces';
-import { UniversityLibrarian, ReferenceItem, Encyclopedia } from './classes';
+import { Book, Logger, Person, Author, Librarian } from './interfaces';
+import { UniversityLibrarian, ReferenceItem } from './classes';
+import { CalculateLateFee as CalcFee, MaxBooksAllowed } from './lib/utilityFunctions';
+import Encyclopedia from './encyclopedia';
 
 function GetAllBooks(): Book[] {
     let books = [
@@ -123,21 +125,21 @@ function PrintBook(book: Book): void {
 
 //******************************************************************
 
-let Newspaper = class extends ReferenceItem {
-    printCitation(): void {
-        console.log(`Newspaper: ${this.title}`)
-    }
-}
+// let Newspaper = class extends ReferenceItem {
+//     printCitation(): void {
+//         console.log(`Newspaper: ${this.title}`)
+//     }
+// }
 
-let myPaper = new Newspaper('The Gazette', 2016);
+// let myPaper = new Newspaper('The Gazette', 2016);
 
-myPaper.printCitation();
+// myPaper.printCitation();
 
-class Novel extends class { title: string } {
-    mainCharacter: string;
-}
+// class Novel extends class { title: string } {
+//     mainCharacter: string;
+// }
 
-let favoriteNovel = new Novel();
+// let favoriteNovel = new Novel();
 
 // let refBook:ReferenceItem = new Encyclopedia('WorldPedia', 2012, 10);
 
